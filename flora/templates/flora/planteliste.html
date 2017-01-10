@@ -1,0 +1,50 @@
+{% extends 'flora/base.html' %}
+
+{% block content %}
+<div>
+    <p>
+      <form action="{% url 'flora:search' %}" method="post">
+        {% csrf_token %}
+        Søk etter plante eller familie:<br>
+        <input type="text" name="search" maxlength="50">
+        <input type="submit" value=" Søk ">
+      </form>
+    </p>
+</div>
+<div>
+  <h3>Planteliste</h3>
+  <div class="col1">
+  <ul>
+        {% if splitListe0 %}
+            {% for plant in splitListe0 %}
+                <li><a href="{% url 'flora:plante' plant.id %}">{{ plant.norwegian_name }}</a></li>
+            {% endfor %}
+        {% else %}
+            <p>En feil har oppstått.</p>
+        {% endif %}
+  </ul>
+  </div>
+  <div class="col1">
+  <ul>
+        {% if splitListe1 %}
+            {% for plant in splitListe1 %}
+                <li><a href="{% url 'flora:plante' plant.id %}">{{ plant.norwegian_name }}</a></li>
+            {% endfor %}
+        {% else %}
+            <p>En feil har oppstått.</p>
+        {% endif %}
+  </ul>
+  </div>
+  <div class="col1">
+  <ul>
+        {% if splitListe2 %}
+            {% for plant in splitListe2 %}
+                <li><a href="{% url 'flora:plante' plant.id %}">{{ plant.norwegian_name }}</a></li>
+            {% endfor %}
+        {% else %}
+            <p>En feil har oppstått.</p>
+        {% endif %}
+  </ul>
+  </div>
+</div>
+{% endblock %}

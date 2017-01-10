@@ -1,0 +1,30 @@
+{% extends 'flora/base.html' %}
+
+{% block content %}
+<div>
+    <p>
+      <form action="{% url 'flora:search' %}" method="post">
+        {% csrf_token %}
+        Søk etter plante eller familie:<br>
+        <input type="text" name="search" maxlength="50">
+        <input type="submit" value=" Søk ">
+      </form>
+    </p>
+</div>
+<div>
+  <h3>Familieliste</h3>
+  <div class="col1">
+    <ul>
+      {% if familieliste %}
+        {% for plant in familieliste %}
+          <li>
+            <a href="{% url 'flora:familie' %}{{ plant }}">{{ plant }}</a>
+          </li>
+        {% endfor %}
+      {% else %}
+        <p>Fant ingen planter.</p>
+      {% endif %}
+    </ul>
+  </div>
+</div>
+{% endblock %}

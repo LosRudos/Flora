@@ -1,0 +1,76 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+{% load static %}
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="cs" lang="cs">
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="content-language" content="cs" />
+    <meta name="author" lang="cs" content="" />
+    <meta name="copyright" lang="cs" content="" />
+    <meta name="description" content="..." />
+    <meta name="keywords" content="..." />
+    <meta name="robots" content="all,follow" />
+    <link href="{% static 'flora/style.css' %}" type="text/css" rel="stylesheet" media="screen,projection" />
+    {% block head %}
+    {% endblock %}
+
+    <title>Flora Ruden</title>
+  </head>
+  <body>
+    <div id="layout">
+      <div id="header">
+
+        <h1 id="logo"><a href="{% url 'flora:index' %}" title="Flora Ruden">Flora Ruden</a></h1>
+        <hr class="noscreen" />
+
+      </div>
+
+      <hr class="noscreen" />
+
+      <div id="nav" class="box">
+        <ul>
+        <li title="hjem"><a href="{% url 'flora:index' %}">Hjem</a></li>
+        <li title="pl"><a href="{% url 'flora:planteliste' %}">Planteliste</a></li>
+        <li title="fln"><a href="{% url 'flora:familieliste' %}">Familieliste norsk</a></li>
+        <li title="fll"><a href="{% url 'flora:familieliste_latin' %}">Familieliste latin</a></li>
+        <li title="ko"><a href="#">Kontakt oss</a></li>
+				</ul>
+        <hr class="noscreen" />
+      </div>
+
+      <div id="container" class="box">
+          <div id="intro">
+            <div id="intro-in">
+            <h2>Wælkjømmen te Flora Ruden</h2>
+            <p class="intro">
+              Denne siden er under utvikling. Siden er i et så tidlig stadie at
+              det faktisk er umulig å ha en side i et tidligere utviklingstadie.
+               Så det så!
+            </p>
+            </div>
+          </div>
+          <div id="obsah" class="content box">
+          <div class="in">
+<!--            <div class="shadow">
+
+            <img src="{% static 'flora/images/Anemone-Color-Meaning.jpg' %}" alt="image.jpg" title="image.jpg" class="thumb" />
+            </div>
+-->
+            {% block content %}
+            {% endblock %}
+            <div class="clear"></div>
+          </div>
+        </div>
+      </div>
+
+      <div id="footer" class="shadow">
+        <div class="f-left">
+          Til informasjon: Dette kommer til å bli verdens beste nettside.
+        </div>
+      </div>
+    </div>
+    {% block script %}
+    <script src="{% static 'flora/jquery-3.1.1.js' %}"></script>
+    <script src="{% static 'flora/base.js' %}"></script>
+    {% endblock %}
+  </body>
+</html>

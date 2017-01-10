@@ -1,0 +1,27 @@
+{% extends 'flora/base.html' %}
+{% load thumbnail %}
+
+{% block content %}
+<h1>{{ plant }}:</h1>
+<p>
+  Norsk familie: <a href="{% url 'flora:familie' %}{{ plant.norwegian_family }}">
+    {{ plant.norwegian_family }}</a><br>
+  Latinsk familie: {{ plant.latin_family }}
+</p>
+<h3>Beskrivelse</h3>
+<p> {{ plant.description|safe }} </p>
+{% if pictures %}
+  <h3>Bilder:</h3>
+  {% for picture in pictures %}
+    <a href="{% url 'flora:slide' %}{{ plant.pk }}/{{ forloop.counter }}">
+      {% thumbnail picture.picture "219" crop="center" as im %}
+        <img src="{{ im.url }}" alt="{{ forloop.counter }}" width="{{ im.width }}" height="{{ im.height }}">
+      {% empty %}
+        <p>No image: {{ picture.picture.url }}</p>
+      {% endthumbnail %}
+    </a>
+  {% endfor %}
+{% else %}
+  <p>Fant ingen bilder for denne planten</p>
+{% endif %}
+{% endblock %}

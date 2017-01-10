@@ -1,0 +1,19 @@
+{% extends 'flora/base.html' %}
+
+{% block content %}
+<h3>Søkeresultat</h3>
+<p>
+  {% if result %}
+  Du søkte etter: {{ searchText }}.<br>
+  Resultat:<br><br>
+    {% for plant in result %}
+      Norsk navn: <a href="{% url 'flora:plante' plant.id %}">{{ plant.norwegian_name }}</a><br>
+      Norsk familie: {{ plant.norwegian_family}}<br>
+      Latinsk familie: {{ plant.latin_family}}<br><br>
+    {% endfor %}
+  {% else %}
+    Du søkte etter: {{ searchText }}.<br>
+    Fant ikke planten du søkte etter<br>
+  {% endif %}
+</p>
+{% endblock %}

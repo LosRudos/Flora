@@ -1,0 +1,13 @@
+{% extends 'flora/base.html' %}
+
+{% block content %}
+<h2>Søk:</h2>
+<p>
+  <form action="{% url 'flora:search' %}" method="post">
+    {% csrf_token %}
+    Her kan du søke etter våre vakre planter:<br>
+    <input type="text" name="search" maxlength="50">
+    <input type="submit" value=" Søk ">
+  </form>
+</p>
+{% endblock %}

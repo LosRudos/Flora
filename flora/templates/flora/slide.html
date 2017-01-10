@@ -1,0 +1,32 @@
+{% extends 'flora/base.html' %}
+{% load static %}
+
+{% block head %}
+  <link href="{% static 'flora/slide.css' %}" type="text/css" rel="stylesheet"/>
+{% endblock %}
+
+{% block content %}
+{% if pictures %}
+  <div id="slider">
+    <ul class="slides">
+      {% for picture in pictures %}
+        <li class="slide">
+          <img src="{{ picture.picture.url }}" width="890"/>
+        </li>
+      {% endfor %}
+        <li class="slide">
+          <img src="{{ firstPic.picture.url }}" width="890"/>
+        </li>
+      </ul>
+    <button class="navButton prev" name="prev"><</button>
+    <button class="navButton next" name="next">></button>
+  </div>
+{% else %}
+  <p>Fant ingen bilder for denne planten</p>
+{% endif %}
+{% endblock %}
+
+{% block script %}
+<script src="{% static 'flora/jquery-3.1.1.js' %}"></script>
+<script src="{% static 'flora/slide.js' %}"></script>
+{% endblock %}

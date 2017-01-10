@@ -1,0 +1,42 @@
+#slider {
+  position: relative;
+  width: 890px;
+  height: 700px;
+  overflow: hidden;
+}
+
+#slider .slides {
+  display: block;
+  width: 5340px;
+  height: 700px;
+  margin: 0;
+  padding: 0;
+}
+
+#slider .slide {
+  float: left;
+  list-style-type: none;
+  width: 890px;
+}
+
+ .navButton {
+  background-color: #bfbfbf;
+  border: none;
+  color: black;
+  padding: 100px 10px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+ .next {
+   position: absolute;
+   top: 30%;
+   right: 10px;
+ }
+
+ .prev {
+   position: absolute;
+   top: 30%;
+   left: 10px;
+ }
