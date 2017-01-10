@@ -75,6 +75,9 @@ def familie(request):
     }
     return render(request, 'flora/search.html', context)
 
+def kontakt(request):
+    return render(request, 'flora/kontakt.html')
+
 def slide(request):
     path = request.path
     pathEnd = path.split("/")

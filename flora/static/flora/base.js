@@ -1,6 +1,6 @@
 'use strict';
 
-var $hjem = $("li[title='hjem']");l
+var $hjem = $("li[title='hjem']");
 var $pl = $("li[title='pl']");
 var $fln = $("li[title='fln']");
 var $fll = $("li[title='fll']");

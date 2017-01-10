@@ -12,4 +12,5 @@ urlpatterns = [
     url(r'^familie/', views.familie, name='familie'),
     url(r'^famile_latin/', views.familieliste_latin, name='familieliste_latin'),
     url(r'^slide/', views.slide, name='slide'),
+    url(r'^kontakt/', views.kontakt, name='kontakt')
 ]
